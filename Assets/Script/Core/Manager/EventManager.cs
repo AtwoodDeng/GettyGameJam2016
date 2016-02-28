@@ -104,16 +104,19 @@ public class EventManager : MonoBehaviour
 		foreach(EventInvocation eventInv in postEventList)
 		{
 			EventDefine tempEventName = eventInv.m_Name;
-			foreach(EventHandler handler in eventDict[tempEventName].Keys)
+			if (eventDict.ContainsKey(tempEventName))
 			{
-				EventClass eventClass = eventDict[tempEventName][handler];
-				Message msg = eventInv.m_message;
-				if ( eventInv.m_sender == null )
-					msg.SetSender(eventClass.m_sender);
-				else
-					msg.SetSender(eventInv.m_sender);
-				msg.SetEventName(eventClass.m_Name);
-				handler(msg);
+				foreach(EventHandler handler in eventDict[tempEventName].Keys)
+				{
+					EventClass eventClass = eventDict[tempEventName][handler];
+					Message msg = eventInv.m_message;
+					if ( eventInv.m_sender == null )
+						msg.SetSender(eventClass.m_sender);
+					else
+						msg.SetSender(eventInv.m_sender);
+					msg.SetEventName(eventClass.m_Name);
+					handler(msg);
+				}
 			}
 		}
 		postEventList.Clear();

@@ -1,0 +1,11 @@
+/* This file (GettyGameJam2016.sublime-project) is auto-generated. Modifications are not saved. */
+
+{
+  "folders":
+  [ { "folder_exclude_patterns": [ "Library" ]
+    , "file_exclude_patterns": [ "*.meta" ]
+    , "path": "."
+    }
+  ]
+  , "solution_file": "GettyGameJam2016.sln"
+}
