@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TrackConfirmFrame : MonoBehaviour {
 
@@ -34,15 +35,25 @@ public class TrackConfirmFrame : MonoBehaviour {
 
 	void Show(string name)
 	{
+		Debug.Log("OnTrackingFound show " + showText.Replace("NAME", name));
 		text.text = showText.Replace("NAME", name);
 		btn.gameObject.SetActive(true);
 		back.gameObject.SetActive(true);
 		text.gameObject.SetActive(true);
+		back.DOFade(0, 0);
+		text.DOFade(0, 0);
+		btn.image.DOFade(0, 0);
+		back.DOFade(0.5f, 1f);
+		text.DOFade(1f, 1f);
+		btn.image.DOFade(1f, 1f);
 
 	}
 
 	public void Confirm()
 	{
+		btn.gameObject.SetActive(false);
+		back.gameObject.SetActive(false);
+		text.gameObject.SetActive(false);
 		EventManager.Instance.PostEvent(EventDefine.TRACK_CONFIRM);
 	}
 	

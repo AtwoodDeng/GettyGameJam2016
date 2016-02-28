@@ -8,18 +8,20 @@
   <Author>Atwood Deng</Author>
   <LastAuthor>Atwood Deng</LastAuthor>
   <Created>2016-02-28T05:51:01Z</Created>
-  <LastSaved>2016-02-28T12:11:39Z</LastSaved>
+  <LastSaved>2016-02-28T20:37:13Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10660</WindowHeight>
-  <WindowWidth>26460</WindowWidth>
+  <WindowHeight>12060</WindowHeight>
+  <WindowWidth>16100</WindowWidth>
   <WindowTopX>1880</WindowTopX>
   <WindowTopY>2160</WindowTopY>
+  <TabRatio>800</TabRatio>
   <ActiveSheet>2</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -36,28 +38,132 @@
   <Style ss:ID="s64">
    <Font ss:Size="15" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s81">
+   <Font ss:Size="15" ss:Color="#FF9900"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Font ss:Size="15" ss:Color="#0000D4"/>
+  </Style>
+  <Style ss:ID="s89">
+   <Font ss:Size="15" ss:Color="#00ABEA"/>
+  </Style>
+  <Style ss:ID="s119">
+   <Font ss:Size="15" ss:Color="#666699"/>
+  </Style>
+  <Style ss:ID="s120">
+   <Font ss:Size="15" ss:Color="#A2BD90"/>
+  </Style>
+  <Style ss:ID="s125">
+   <Font ss:Size="15" ss:Color="#33CCCC"/>
+  </Style>
+  <Style ss:ID="s126">
+   <Font ss:Size="15" ss:Color="#33CCCC"/>
+  </Style>
+  <Style ss:ID="s136">
+   <Font ss:Size="15" ss:Color="#33CCCC"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="room">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="98"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Number</Data></Cell>
     <Cell><Data ss:Type="String">Character</Data></Cell>
     <Cell><Data ss:Type="String">Dialog</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">There you are! Great! It's good to finally see a friendly face!</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">There you are! Great! It's good to finally see a friendly face! I've been trapped in this room for … I don't even know how long anymore!</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Who are you?</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Trapped?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">I've been trapped in this room for … I don't even know how long anymore!</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Oh how rude of me, I never really introduced myself! Apologies! My name is Dareek, and I am a time traveller.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Or at least I was one. Something went terribly wrong with my time machine. And oh my, it has really messed with my head!</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Yes, something has gone terribly wrong with my time machine and … wait, I forgot to introduce myself, haven't I?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">My apologies. My name is Dareek, and I am a time traveller. Or at least I was one. </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">How can I help?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Hmmm... As you can see, I am somewhere around the later half of the 1700's in France. Actually, can you help me look for my notes?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">I lost them when I got here. It must be somewhere in this room …</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
+   <TopRowVisible>1</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="scan">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Row>
+    <Cell><Data ss:Type="String">Number</Data></Cell>
+    <Cell><Data ss:Type="String">Character</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">I found them! According to these notes, I came here to retrieve something, something about a Medusa's head. But I see nothing in this room that has … OH, WAIT!</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">I remember something used to stand by that right window. &#160;Oh, it's all coming back to me! A secretaire! This is it. My time machine must have sent it back to another dimension. </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="3" ss:StyleID="s64"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -86,7 +192,7 @@
    <Row ss:Height="18">
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">We found the Medusa!!!!</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">You did it! Now find scan a Lion to open it!</Data></Cell>
    </Row>
    <Row ss:Index="10" ss:Height="18">
     <Cell ss:Index="2" ss:StyleID="s64"/>
@@ -100,11 +206,12 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -122,7 +229,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">We found the Lion!!!!</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Great, let's have a closer look…</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -134,29 +241,40 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1C1:R2C3</RangeSelection>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="item">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="2" x:FullColumns="1"
+ <Worksheet ss:Name="map">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="101"/>
    <Row>
     <Cell><Data ss:Type="String">Number</Data></Cell>
     <Cell><Data ss:Type="String">Character</Data></Cell>
     <Cell><Data ss:Type="String">Dialog</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:Height="18">
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="String"> </Data></Cell>
-    <Cell><Data ss:Type="String">I'm item 1</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">That's it!</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">While you were gone I fixed my time machine … and now that we have the map, I know the coordinates of my next adventure!</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Meet me in the next gallery!</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -164,8 +282,73 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="scu">
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="7" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:Index="25" ss:AutoFitWidth="0" ss:Width="71"/>
+   <Row>
+    <Cell ss:Index="23"><Data ss:Type="String">Number</Data></Cell>
+    <Cell><Data ss:Type="String">Character</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog2</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Oh careful with that one! This is French royalty right there. </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String"><Font html:Color="#A2BD90"
+       xmlns="http://www.w3.org/TR/REC-html40">Tell me more</Font><Font
+       html:Color="#33CCCC" xmlns="http://www.w3.org/TR/REC-html40"> … </Font></Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Gossip facts?</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Louis XV, King of France from 1715 to 1774... The so-called Well-Loved King who ironically earned the hatred of his own people after a series of poor decisions.</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String"><Font html:Color="#A2BD90"
+       xmlns="http://www.w3.org/TR/REC-html40">Some claim the seeds of the French Revolution were planted during his reign …</Font><Font
+       html:Color="#33CCCC" xmlns="http://www.w3.org/TR/REC-html40"> </Font></Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Oh, gossip! Yes! Let me tell you, Louis XV had a longtime mistress, Madame de Pompadour … </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell ss:Index="23"><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">yes, the great patron of architecture and decorative arts! </Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
+   <LeftColumnVisible>22</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveCol>22</ActiveCol>
+     <RangeSelection>R1C23:R7C26</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -173,7 +356,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="clock">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Row>
     <Cell><Data ss:Type="String">Number</Data></Cell>
@@ -183,15 +366,10 @@
    <Row ss:Height="18">
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Time … so relative. I spent a lot of my time looking at this clock.</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Time … so relative. I spent a lot of my time looking at this clock. It seems to me that it's an ode to the latest scientific discoveries at the beginning of the 1700's. </Data></Cell>
    </Row>
    <Row ss:Height="18">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">It seems to me that it's an ode to the latest scientific discoveries at the beginning of the 1700's. </Data></Cell>
-   </Row>
-   <Row ss:Height="18">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">You see the corners of the case? These represent the four continents known at this time - &#160;Africa, Europe, Asia, and America. </Data></Cell>
    </Row>
@@ -207,7 +385,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1C1:R2C3</RangeSelection>
+     <RangeSelection>R1C1:R3C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -225,7 +403,7 @@
    <Row ss:Height="18">
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">The tea is cold, is it? I'm sorry. But just admire how beautiful these French-made Japanese-style porcelain. </Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The tea is cold, is it? I'm sorry. But just admire how beautiful this French-made Japanese-style porcelain set is.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -241,19 +419,112 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="map">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="2" x:FullColumns="1"
+ <Worksheet ss:Name="bronzes">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="101"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="111"/>
+   <Column ss:AutoFitWidth="0" ss:Width="125"/>
    <Row>
     <Cell><Data ss:Type="String">Number</Data></Cell>
     <Cell><Data ss:Type="String">Character</Data></Cell>
     <Cell><Data ss:Type="String">Dialog</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog2</Data></Cell>
    </Row>
    <Row ss:Height="18">
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">I got the map!!!</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Admiring Madame de Pompadour's bronze figures, are we? </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Madame de Pompadour?</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Tell me more about them…</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Yes, Madame de Pompadour, Louis XV's mistress and an important patron of the arts.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell><Data ss:Type="String">She was his closest and most trusted advisor. </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Madame de Pompadour was an avid collector. And here's an interesting thing… These figures are depicted in such a different way </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">when comparing to aristocrat portrait busts, like the Louis XV's one over there. Hmm...something to think about. </Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R1C1:R7C2</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="scu1">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Row>
+    <Cell><Data ss:Type="String">Number</Data></Cell>
+    <Cell><Data ss:Type="String">Character</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog2</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Oh careful with that one! This is French royalty right there. </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String"><Font html:Color="#A2BD90"
+       xmlns="http://www.w3.org/TR/REC-html40">Tell me more</Font><Font
+       html:Color="#33CCCC" xmlns="http://www.w3.org/TR/REC-html40"> … </Font></Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Gossip facts?</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Louis XV, King of France from 1715 to 1774... The so-called Well-Loved King who ironically earned the hatred of his own people after a series of poor decisions.</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String"><Font html:Color="#A2BD90"
+       xmlns="http://www.w3.org/TR/REC-html40">Some claim the seeds of the French Revolution were planted during his reign …</Font><Font
+       html:Color="#33CCCC" xmlns="http://www.w3.org/TR/REC-html40"> </Font></Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Oh, gossip! Yes! Let me tell you, Louis XV had a longtime mistress, Madame de Pompadour … </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">yes, the great patron of architecture and decorative arts! </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -261,8 +532,73 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R1C1:R7C4</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="scan2">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="8" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="106"/>
+   <Row>
+    <Cell><Data ss:Type="String">Number</Data></Cell>
+    <Cell><Data ss:Type="String">Character</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog</Data></Cell>
+    <Cell><Data ss:Type="String">Dialog2</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">You must help me retrieve it! From my notes, we must be looking for a secrétaire from the early Neoclassical 'greek taste' style.</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Secretaire?</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">It's some sort of enclosed writing desk. But they look almost like an armoire when they're closed!</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">They were true works of art!</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">YOU</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">How should I do this?</Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Right, my instincts are saying my time machine has sent it to the Museum South Pavilion, Gallery S111. Go there and find this sécretaire. </Data></Cell>
+   </Row>
+   <Row ss:Height="18">
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">TRAVELLER</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Once you do, look for the Medusa head and scan it right back to me. </Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
+   <TopRowVisible>1</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

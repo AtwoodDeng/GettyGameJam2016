@@ -13,6 +13,7 @@ public class LogicManager : MonoBehaviour {
 	[SerializeField] GameObject TrackUI;
 	[SerializeField] GameObject Secretaire;
 	[SerializeField] GameObject End;
+	[SerializeField] GameObject Title;
 
 	/////////begin
 	[SerializeField] float beginShowTextTime;
@@ -21,9 +22,14 @@ public class LogicManager : MonoBehaviour {
 	[SerializeField] string beginSentence2 =  " I need your help. But let's make sure we're in the right frequency first.";
 	[SerializeField] Button beginHellowBtn;
 	[SerializeField] Image white;
+	[SerializeField] AudioSource lostSignal;
+	[SerializeField] Image signal;
 
 	[SerializeField] Image SecretaireOpen;
 	[SerializeField] Image SecretaireClose;
+	[SerializeField] Image bigWhite;
+	[SerializeField] Image bigPicture;
+	[SerializeField] Sprite[] BigSprites;
 
 	[SerializeField] Camera mainCamera;
 
@@ -32,7 +38,18 @@ public class LogicManager : MonoBehaviour {
 	[SerializeField] DialogFrame dialogFrame;
 	[SerializeField] Image character;
 
-	[SerializeField] List<string> states;
+	[SerializeField] Image scanBack;
+	[SerializeField] Image scanAni;
+	[SerializeField] Image Map;
+
+	[SerializeField] Text scanTutorial;
+	[SerializeField] Image scanTutorialBack;
+	[SerializeField] Text tagTutorial;
+	[SerializeField] Image tagTutorialBack;
+
+	[SerializeField] Button[] itemButtons;
+
+	List<string> states = new List<string>();
 	[SerializeField] State tempState;
 
 
@@ -62,8 +79,38 @@ public class LogicManager : MonoBehaviour {
 
 	void OnEndDialog(Message msg)
 	{
+		if ( tempState.name.EndsWith("scan"))
+		{
+			scanBack.gameObject.SetActive(true);
+			scanAni.gameObject.SetActive(true);
+
+			scanBack.DOFade(0,0);
+			scanAni.DOFade(0,0);
+			scanBack.DOFade(0.7f, 1f);
+			scanAni.DOFade(1f, 1f);
+
+			scanTutorial.DOFade(1f, 1f);
+			scanTutorialBack.DOFade(1f, 1f);
+		}
+
+		if (tempState.name.EndsWith("room"))
+		{
+			tagTutorial.DOFade(1f, 1f);
+			tagTutorialBack.DOFade(1f, 1f);
+			foreach(Button btn in itemButtons)
+			{
+				btn.image.raycastTarget = true;
+			}
+		}
+
+
+
+
 		if (tempState != null)
 			tempState.OnDialogEnd();
+		bigPicture.DOFade(0, 1f);
+		bigWhite.DOFade(0, 1f);
+
 	}
 
 	void OnTrackConfirm(Message msg)
@@ -76,10 +123,34 @@ public class LogicManager : MonoBehaviour {
 
 	void Awake()
 	{
+		states = new List<string>();
+		states.Add("begin");
+		states.Add("dialog-room");
+		states.Add("delay-60");
+		states.Add("dialog-scan");
+		states.Add("dialog-scan2");
+		states.Add("track-Medusa");
+		states.Add("dialog-room2");
+		states.Add("track-Lion");
+		states.Add("dialog-room3");
+		states.Add("sec");
+		states.Add("dialog-map");
+		states.Add("end");
+
 		helper = new XMLHelper("Data/script");
 
+		StartCoroutine(Begin());
+		// NextState();
+		// EnterRoom();
+	}
+
+	IEnumerator Begin()
+	{
+		HideAll();
+		Title.SetActive(true);
+		yield return new WaitForSeconds(5f);
 		NextState();
-		EnterRoom();
+
 	}
 
 	void Update()
@@ -101,6 +172,8 @@ public class LogicManager : MonoBehaviour {
 	}
 	public void StartBegin()
 	{
+		HideAll();
+		Beginning.SetActive(true);
 		beginText.DOText( beginSentence , beginShowTextTime).OnComplete( ShowBeginButton);
 	}
 	public void ShowBeginButton()
@@ -123,14 +196,29 @@ public class LogicManager : MonoBehaviour {
 	public void EnterRoom()
 	{
 		StartRoom();
-		NextState();
+
+		lostSignal.Play();
+		lostSignal.DOFade(0, 2f).SetDelay(1f);
+		signal.DOFade(1f, 0);
+		signal.DOFade(0, 2f).SetDelay(1f).OnComplete(OnSignalOut);
 
 		character.gameObject.SetActive(true);
+	}
+
+	public void OnSignalOut()
+	{
+
+		NextState();
+
 	}
 
 	public void StartScan()
 	{
 		Debug.Log("Start Camera");
+
+		scanTutorial.DOFade(0f, 1f);
+		scanTutorialBack.DOFade(0f, 1f);
+
 		HideAll();
 		Track.SetActive(true);
 		TrackUI.SetActive(true);
@@ -150,15 +238,45 @@ public class LogicManager : MonoBehaviour {
 	{
 		HideAll();
 		Secretaire.SetActive(true);
+		dialogFrame.gameObject.SetActive(true);
+		Room.SetActive(true);
+
+		bigWhite.DOFade(1f, 1f);
+
+		Debug.Log("add dialog");
+		dialogFrame.addDialog("TRAVELLER","Can you see a map anywhere?","");
 
 	}
 
 	public void OnShowItemDialog(string item)
 	{
+		int bigIndex = 0 ;
+		if (item == "teaset")
+			bigIndex = 0;
+		if (item == "bronzes")
+			bigIndex = 1;
+		if (item == "scu1")
+			bigIndex = 2;
+		if (item == "clock")
+			bigIndex = 3;
+
+
+		tagTutorial.DOFade(0f, 1f);
+		tagTutorialBack.DOFade(0f, 1f);
+
+		bigPicture.sprite = BigSprites[bigIndex];
+		bigPicture.DOFade(1f, 1f);
+		bigWhite.DOFade(0.8f, 1f);
+
+		Debug.Log("ReadItem" + item);
 		DataTable table = helper.ReadSheet(item);
+
 		for(int i = 0; i < table.rows.Count ; ++i)
 		{
-			dialogFrame.addDialog(table.rows[i].row.Select("Character"),table.rows[i].row.Select("Dialog"));
+			string dialog2 = "";
+			if (table.Contains("Dialog2"))
+				dialog2 = table.rows[i].row.Select("Dialog2");
+			dialogFrame.addDialog(table.rows[i].row.Select("Character"),table.rows[i].row.Select("Dialog"),dialog2);
 		}
 	}
 
@@ -175,6 +293,7 @@ public class LogicManager : MonoBehaviour {
 
 	public void HideAll()
 	{
+		Title.SetActive(false);
 		Beginning.SetActive(false);
 		Room.SetActive(false);
 		RoomUI.SetActive(false);
@@ -183,6 +302,7 @@ public class LogicManager : MonoBehaviour {
 		Secretaire.SetActive(false);
 		End.SetActive(false);
 		dialogFrame.gameObject.SetActive(false);
+		signal.DOFade(0, 0);
 	}
 
 	public void NextState()
@@ -201,9 +321,13 @@ public class LogicManager : MonoBehaviour {
 		{
 			string sheet = name.Split('-')[1];
 			DataTable table = helper.ReadSheet(sheet);
+			Debug.Log("dialog size" + table.rows.Count);
 			for(int i = 0; i < table.rows.Count ; ++i)
 			{
-				dialogFrame.addDialog(table.rows[i].row.Select("Character"),table.rows[i].row.Select("Dialog"));
+				string dialog2 = "";
+				if (table.Contains("Dialog2"))
+					dialog2 = table.rows[i].row.Select("Dialog2");
+				dialogFrame.addDialog(table.rows[i].row.Select("Character"),table.rows[i].row.Select("Dialog"),dialog2);
 			}
 
 			tempState = new DialogState();
@@ -217,6 +341,13 @@ public class LogicManager : MonoBehaviour {
 			{
 				SecretaireClose.gameObject.SetActive(false);
 				SecretaireOpen.gameObject.SetActive(true);
+			}
+
+			if (name.EndsWith("map"))
+			{
+				bigWhite.DOFade(0, 1f);
+				Map.gameObject.SetActive(true);
+
 			}
 
 		}else if (name.StartsWith("track"))
@@ -235,7 +366,27 @@ public class LogicManager : MonoBehaviour {
 		{
 			tempState = new EndState();
 			tempState.Init(name);	
+		}else if (name.StartsWith("delay"))
+		{
+			tempState = new DelayState();
+			tempState.Init(name);
+			float delay = float.Parse(name.Split('-')[1]);
+			StartCoroutine(DelayNextState(delay));
 		}
+
+
+	}
+
+	IEnumerator DelayNextState(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		while(dialogFrame.GetIsShowing())
+		{
+			yield return null;
+		}
+		yield return new WaitForSeconds(0.1f);
+		NextState();
+
 	}
 }
 
@@ -306,4 +457,8 @@ class EndState: State
 		base.Init(_name);
 		LogicManager.Instance.StartEnd();
 	}
+}
+
+class DelayState: State
+{
 }
