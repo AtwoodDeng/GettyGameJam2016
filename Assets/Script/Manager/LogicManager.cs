@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class LogicManager : MonoBehaviour {
 
@@ -12,11 +14,23 @@ public class LogicManager : MonoBehaviour {
 	[SerializeField] GameObject Secretaire;
 	[SerializeField] GameObject End;
 
+	/////////begin
+	[SerializeField] float beginShowTextTime;
+	[SerializeField]  Text beginText;
+	[SerializeField] string beginSentence =  "Hello? Anyone out there? I need some help! Hello! ";
+	[SerializeField] string beginSentence2 =  " I need your help. But let's make sure we're in the right frequency first.";
+	[SerializeField] Button beginHellowBtn;
+	[SerializeField] Image white;
+
+	[SerializeField] Image SecretaireOpen;
+	[SerializeField] Image SecretaireClose;
+
 	[SerializeField] Camera mainCamera;
 
 	[SerializeField] GameObject room_secre;
 
 	[SerializeField] DialogFrame dialogFrame;
+	[SerializeField] Image character;
 
 	[SerializeField] List<string> states;
 	[SerializeField] State tempState;
@@ -30,16 +44,12 @@ public class LogicManager : MonoBehaviour {
 
 	void OnEnable()
 	{
-		// EventManager.Instance.RegistersEvent(EventDefine.TrackFound, OnTrackingFound);
-		EventManager.Instance.RegistersEvent(EventDefine.BEGIN_DIALOG, OnBeginDialog);
 		EventManager.Instance.RegistersEvent(EventDefine.END_DIALOG, OnEndDialog);
 		EventManager.Instance.RegistersEvent(EventDefine.TRACK_CONFIRM, OnTrackConfirm);
 	}
 
 	void OnDisable()
 	{
-		// EventManager.Instance.UnregistersEvent(EventDefine.TrackFound, OnTrackingFound);
-		EventManager.Instance.UnregistersEvent(EventDefine.BEGIN_DIALOG, OnBeginDialog);
 		EventManager.Instance.UnregistersEvent(EventDefine.END_DIALOG, OnEndDialog);
 		EventManager.Instance.UnregistersEvent(EventDefine.TRACK_CONFIRM, OnTrackConfirm);
 	}
@@ -64,35 +74,61 @@ public class LogicManager : MonoBehaviour {
 		StartRoom();
 	}
 
-	void OnBeginDialog(Message msg)
-	{
-
-	}
-
-
 	void Awake()
 	{
 		helper = new XMLHelper("Data/script");
 
-		Debug.Log(helper.ReadSheet("first").Select("0").Select("Dialog"));
-
 		NextState();
+		EnterRoom();
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyUp(KeyCode.C))
 		{
-			StartCamera();
+			StartScan();
 		}
 
 		if (Input.GetKeyUp(KeyCode.R))
 		{
 			StartRoom();
 		}
+
+		if (Input.GetKeyUp(KeyCode.D))
+		{
+			EventManager.Instance.PostEvent(EventDefine.TRACK_CONFIRM);
+		}
+	}
+	public void StartBegin()
+	{
+		beginText.DOText( beginSentence , beginShowTextTime).OnComplete( ShowBeginButton);
+	}
+	public void ShowBeginButton()
+	{
+		beginHellowBtn.image.DOFade(1f, 1f);
+		beginHellowBtn.GetComponentInChildren<Text>().DOFade(1f, 1f);
 	}
 
-	public void StartCamera()
+	public void StartBegin2()
+	{
+		Sequence seq = DOTween.Sequence();
+		beginHellowBtn.gameObject.SetActive(false);
+		beginText.text = "";
+		seq.Append( beginText.DOText( beginSentence2 , beginShowTextTime))
+			.AppendInterval(2f)
+			.Append(white.DOFade(1f, 2f).OnComplete(EnterRoom))
+			.Append(white.DOFade(0f, 2f));
+	}
+
+	public void EnterRoom()
+	{
+		StartRoom();
+		NextState();
+
+		character.gameObject.SetActive(true);
+	}
+
+	public void StartScan()
 	{
 		Debug.Log("Start Camera");
 		HideAll();
@@ -107,8 +143,15 @@ public class LogicManager : MonoBehaviour {
 		Room.SetActive(true);
 		RoomUI.SetActive(true);
 		mainCamera.enabled = true;
+		dialogFrame.gameObject.SetActive(true);
 	}
 
+	public void StartSecretaire()
+	{
+		HideAll();
+		Secretaire.SetActive(true);
+
+	}
 
 	public void OnShowItemDialog(string item)
 	{
@@ -117,12 +160,17 @@ public class LogicManager : MonoBehaviour {
 		{
 			dialogFrame.addDialog(table.rows[i].row.Select("Character"),table.rows[i].row.Select("Dialog"));
 		}
-
 	}
 
-	public void StartSecretaire()
+	public void OnMap()
 	{
+		NextState();
+	}
 
+	public void StartEnd()
+	{
+		HideAll();
+		End.SetActive(true);
 	}
 
 	public void HideAll()
@@ -134,12 +182,13 @@ public class LogicManager : MonoBehaviour {
 		TrackUI.SetActive(false);
 		Secretaire.SetActive(false);
 		End.SetActive(false);
+		dialogFrame.gameObject.SetActive(false);
 	}
 
 	public void NextState()
 	{
 		if (states.Count <= 0 )
-		return;
+			return;
 		string name = states[0];
 		states.RemoveAt(0);
 
@@ -159,15 +208,36 @@ public class LogicManager : MonoBehaviour {
 
 			tempState = new DialogState();
 			tempState.Init(name);
+
+
+			if (name.EndsWith("room2"))
+			{
+				SecretaireClose.gameObject.SetActive(true);
+			}else if (name.EndsWith("room3"))
+			{
+				SecretaireClose.gameObject.SetActive(false);
+				SecretaireOpen.gameObject.SetActive(true);
+			}
+
 		}else if (name.StartsWith("track"))
 		{
 			tempState = new TrackState();
 			tempState.Init(name);
+		}else if (name.StartsWith("begin"))
+		{
+			tempState = new BeginState();
+			tempState.Init(name);
+		}else if (name.StartsWith("sec"))
+		{
+			tempState = new SecState();
+			tempState.Init(name);	
+		}else if (name.StartsWith("end"))
+		{
+			tempState = new EndState();
+			tempState.Init(name);	
 		}
 	}
 }
-
-
 
 [System.SerializableAttribute]
 class State
@@ -191,6 +261,7 @@ class DialogState: State
 	{
 		base.Init(_name);
 		LogicManager.Instance.StartRoom();
+
 	}
 
 	override public void OnDialogEnd()
@@ -204,5 +275,35 @@ class TrackState: State
 	override public void Init(string _name)
 	{
 		base.Init(_name);
+	}
+	override public void OnTrackConfirm()
+	{
+		LogicManager.Instance.NextState();
+	}
+}
+
+class SecState: State
+{
+	override public void Init(string _name)
+	{
+		base.Init(_name);
+	}
+}
+
+class BeginState: State
+{
+	override public void Init(string _name)
+	{
+		base.Init(_name);
+		LogicManager.Instance.StartBegin();
+	}
+}
+
+class EndState: State
+{
+	override public void Init(string _name)
+	{
+		base.Init(_name);
+		LogicManager.Instance.StartEnd();
 	}
 }
